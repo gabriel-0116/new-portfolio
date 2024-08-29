@@ -5,6 +5,7 @@ import { useOutsideClick } from "./hooks";
 import { AwardAnimation } from "../../LottieAnimations/award";
 import { EducationAnimation } from "../../LottieAnimations/education";
 import { SkillsAnimation } from "../../LottieAnimations/skills";
+import { MdWorkOutline } from "react-icons/md";
 
 export function NewCard() {
   const [active, setActive] = useState<(typeof cards)[number] | boolean | null>(
@@ -50,15 +51,11 @@ export function NewCard() {
             <motion.div
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
-              className="w-full max-w-[500px] h-[45rem] md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden rounded-3xl mt-5"
+              className="w-full max-w-[500px] h-[46rem] md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden rounded-3xl mt-5"
             >
-              
-              <motion.div layoutId={`img-${active.title}-${id}`}>
-                {active.src}
-              </motion.div>
               <div>
                 <div className="flex justify-between items-start p-4">
-                  <div className="">
+                  <div className="mt-5">
                     <motion.h3
                       layoutId={`title-${active.title}-${id}`}
                       className="font-bold text-neutral-700 dark:text-neutral-200"
@@ -67,25 +64,25 @@ export function NewCard() {
                     </motion.h3>
                   </div>
                   <motion.button
-              key={`button-${active.title}-${id}`}
-              layout
-              initial={{
-                opacity: 0,
-              }}
-              animate={{
-                opacity: 1,
-              }}
-              exit={{
-                opacity: 0,
-                transition: {
-                  duration: 0.05,
-                },
-              }}
-              className="lg:hidden items-center justify-center bg-white rounded-full h-6 w-6"
-              onClick={() => setActive(null)}
-            >
-              <CloseIcon />
-            </motion.button>
+                    key={`button-${active.title}-${id}`}
+                    layout
+                    initial={{
+                      opacity: 0,
+                    }}
+                    animate={{
+                      opacity: 1,
+                    }}
+                    exit={{
+                      opacity: 0,
+                      transition: {
+                        duration: 0.05,
+                      },
+                    }}
+                    className="lg:hidden items-center justify-center bg-white rounded-full h-6 w-6"
+                    onClick={() => setActive(null)}
+                  >
+                    <CloseIcon />
+                  </motion.button>
                 </div>
                 <div className="relative px-4">
                   <motion.div
@@ -93,7 +90,7 @@ export function NewCard() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="text-neutral-600 text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400 [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
+                    className="text-neutral-600 text-xs md:text-sm lg:text-base h-96 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400 [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
                   >
                     {typeof active.content === "function"
                       ? active.content()
@@ -105,33 +102,36 @@ export function NewCard() {
           </div>
         ) : null}
       </AnimatePresence>
-      <ul className="flex items-center justify-center gap-10 ">
+      <ul className="flex items-center justify-center gap-2 xl:w-52 lg:w-full md:grid-cols-2 md:grid sm:grid-cols-1">
         {cards.map((card) => (
           <motion.div
             layoutId={`card-${card.title}-${id}`}
             key={`card-${card.title}-${id}`}
             onClick={() => setActive(card)}
-            className="p-5 grid md:flex-row items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl"
+            className="flex items-center justify-center group p-5
+            dark:hover:shadow-2xl dark:hover:shadow-violet-300 dark:bg-purple-900/[0.1] dark:hover:bg-gradient-to-tr dark:hover:from-purple-900/10 
+            dark:hover:via-violet-600/30 dark:hover:to-violet-700/70 dark:border-white/[0.2] 
+            border-black/[0.1] rounded-xl xl:mt-10"
           >
-            <div className="flex gap-4 flex-col md:flex-row ">
+            <div className="flex gap-4 flex-col group-hover:-translate-y-2 ease-in-out duration-300 ">
               <motion.div layoutId={`img-${card.title}-${id}`}>
                 {card.src}
               </motion.div>
               <div className="">
                 <motion.h3
                   layoutId={`title-${card.title}-${id}`}
-                  className="font-medium text-neutral-800 dark:text-neutral-200 text-center md:text-left"
+                  className="font-medium text-neutral-800 dark:text-neutral-200 text-center "
                 >
                   {card.title}
                 </motion.h3>
               </div>
-            </div>
             <motion.button
               layoutId={`button-${card.title}-${id}`}
-              className="py-2 text-sm rounded-full font-bold bg-gray-100 hover:bg-green-500 hover:text-white text-black mt-2 md:mt-0"
-            >
+              className="py-2 text-sm rounded-full font-bold bg-gray-100 hover:bg-green-500 hover:text-white text-black md:mt-0"
+              >
               {card.ctaButton}
             </motion.button>
+              </div>
           </motion.div>
         ))}
       </ul>
@@ -163,7 +163,7 @@ export const CloseIcon = () => {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="h-4 w-4 text-black"
+      className="h-4 w-6 text-black"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path d="M18 6l-12 12" />
@@ -179,18 +179,27 @@ const cards = [
     src: <AwardAnimation />,
     content: () => {
       return (
-        <p>
-          Lana Del Rey, an iconic American singer-songwriter, is celebrated for
-          her melancholic and cinematic music style. Born Elizabeth Woolridge
-          Grant in New York City, she has captivated audiences worldwide with
-          her haunting voice and introspective lyrics. <br /> <br /> Her songs
-          often explore themes of tragic romance, glamour, and melancholia,
-          drawing inspiration from both contemporary and vintage pop culture.
-          With a career that has seen numerous critically acclaimed albums, Lana
-          Del Rey has established herself as a unique and influential figure in
-          the music industry, earning a dedicated fan base and numerous
-          accolades.
-        </p>
+        <div className="grid flex-col gap-2 mt-2">
+          <p className="text-base text-white">
+            Minha jornada como Desenvolvedor Fullstack, tentando aderir o máximo de experiências possível.
+          </p>
+          <ol className="relative ms-4 border-s border-gray-500">
+            <li className="ms-6">
+              <span className="text-2xl absolute flex justify-center items-center w-6 h-6 rounded-full -start-3 ring-purple-500 ring-2 p-1 bg-black">
+                <MdWorkOutline />
+              </span>
+              <h3 className="text-white text-xl">Freelance</h3>
+              <span className="text-purple-300 text-base">
+                Desenvolvedor FullStack
+              </span>
+              <time className="block">abril de 2024 - momento</time>
+              <p className="text-sm text-white">
+                Utilizando minhas habilidades e conhecimentos adiquirido com
+                estudos para trabalhar projentando sites
+              </p>
+            </li>
+          </ol>
+        </div>
       );
     },
   },
@@ -200,17 +209,32 @@ const cards = [
     src: <SkillsAnimation />,
     content: () => {
       return (
-        <p>
-          Babu Maan, a legendary Punjabi singer, is renowned for his soulful
-          voice and profound lyrics that resonate deeply with his audience. Born
-          in the village of Khant Maanpur in Punjab, India, he has become a
-          cultural icon in the Punjabi music industry. <br /> <br /> His songs
-          often reflect the struggles and triumphs of everyday life, capturing
-          the essence of Punjabi culture and traditions. With a career spanning
-          over two decades, Babu Maan has released numerous hit albums and
-          singles that have garnered him a massive fan following both in India
-          and abroad.
-        </p>
+        <div className="grid flex-col gap-2 mt-2">
+          <p className="text-base text-white">
+            Habilidades que desenvolvi e adquirir com o experiências e vivências na minha jornada como pessoa.
+          </p>
+          <ul className="relative ms-4 border-s border-gray-500">
+            <li className="ms-6">
+              <span className="text-2xl absolute flex justify-center items-center w-6 h-6 rounded-full -start-3 ring-purple-500 ring-2 p-1 bg-black">
+                <MdWorkOutline />
+              </span>
+              <h3 className="text-purple-300 text-2xl">Habilidades</h3>
+              <ul className="text-white text-sm">
+                <li>Criatividade</li>
+                <li>Comunicação</li>
+                <li>Capacidade Analítica</li>
+                <li>Adaptabilidade</li>
+                <li>Proatividade</li>
+                <li>Trabalho em Equipe</li>
+                <li>Facilidade em Aprender</li>
+                <li>Organização</li>
+              </ul>
+              <span className="text-2xl absolute flex justify-center items-center w-6 h-6 rounded-full -start-3 ring-purple-500 ring-2 p-1 bg-black">
+                <MdWorkOutline />
+              </span>
+            </li>
+          </ul>
+        </div>
       );
     },
   },
@@ -220,18 +244,49 @@ const cards = [
     src: <EducationAnimation />,
     content: () => {
       return (
-        <p>
-          Lana Del Rey, an iconic American singer-songwriter, is celebrated for
-          her melancholic and cinematic music style. Born Elizabeth Woolridge
-          Grant in New York City, she has captivated audiences worldwide with
-          her haunting voice and introspective lyrics. <br /> <br /> Her songs
-          often explore themes of tragic romance, glamour, and melancholia,
-          drawing inspiration from both contemporary and vintage pop culture.
-          With a career that has seen numerous critically acclaimed albums, Lana
-          Del Rey has established herself as a unique and influential figure in
-          the music industry, earning a dedicated fan base and numerous
-          accolades.
-        </p>
+        <div className="grid flex-col gap-2 mt-2">
+          <p className="text-base text-white">
+            Um pouco do meus conhecimentos até o momento
+          </p>
+          <ol className="relative ms-4 border-s border-gray-500">
+            <li className="ms-6">
+              <span className="text-2xl absolute flex justify-center items-center w-6 h-6 rounded-full -start-3 ring-purple-500 ring-2 p-1 bg-black">
+                <MdWorkOutline />
+              </span>
+              <h3 className="text-white text-xl">
+                Análise e Desenvolvimento de Sistemas
+              </h3>
+              <span className="text-purple-300 text-base">
+                Universidade Paulista
+              </span>
+              <time className="block">
+                agosto de 2024 - agosto de 2026 (término previsto)
+              </time>
+              <p className="text-sm text-white">
+                Graduação com o foco em análise e desenvolvimento de software
+              </p>
+            </li>
+          </ol>
+          <ol className="relative ms-4 border-s border-gray-500">
+            <li className="ms-6">
+              <span className="text-2xl absolute flex justify-center items-center w-6 h-6 rounded-full -start-3 ring-purple-500 ring-2 p-1 bg-black">
+                <MdWorkOutline />
+              </span>
+              <h3 className="text-white text-xl">
+                Javascript Fullstack
+              </h3>
+              <span className="text-purple-300 text-base">
+                OneBitCode
+              </span>
+              <time className="block">
+                agosto de 2024 - momento
+              </time>
+              <p className="text-sm text-white">
+                Curso com Linguagens de Programação, FrameWork, Bibliotecas, API's e Ferramentas úties.
+              </p>
+            </li>
+          </ol>
+        </div>
       );
     },
   },

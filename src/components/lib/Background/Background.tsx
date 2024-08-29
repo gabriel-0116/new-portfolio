@@ -70,7 +70,7 @@ export const Background = ({
     <div
       ref={parentRef}
       className={cn(
-        "h-screen bg-black from-neutral-950 from-80% via-neutral-800 to-purple-400 relative flex items-center w-full justify-center overflow-hidden",
+        "h-screen bg-gradient-to-tr from-neutral-950 from-80% via-neutral-800 to-purple-400 relative flex items-center w-full justify-center overflow-hidden",
         // h-screen if you want bigger
         className
       )}

@@ -22,7 +22,7 @@ export const Gradiant = ({
     },
   };
   return (
-    <div className={cn("relative p-5 group", containerClassName)}>
+    <div className={cn("relative group", containerClassName)}>
       <motion.div
         variants={animate ? variants : undefined}
         initial={animate ? "initial" : undefined}
@@ -40,8 +40,8 @@ export const Gradiant = ({
           backgroundSize: animate ? "400% 400%" : undefined,
         }}
         className={cn(
-          "absolute -inset-3 rounded-3xl z-[1] opacity-60 group-hover:opacity-100 blur-xl  transition duration-500 will-change-transform",
-          " bg-[radial-gradient(circle_farthest-side_at_0_100%,#6a00ab,transparent),radial-gradient(circle_farthest-side_at_100%_0,#ffffff,transparent),radial-gradient(circle_farthest-side_at_100%_100%,#e2b3ff,transparent),radial-gradient(circle_farthest-side_at_0_0,#e2b3ff,#6a00ab)]"
+          "absolute -inset-3 rounded-3xl z-[1] opacity-60 group-hover:opacity-100 blur-xl transition duration-500 will-change-transform",
+          " bg-[radial-gradient(circle_farthest-side_at_0_100%,#edb0e1,transparent),radial-gradient(circle_farthest-side_at_100%_0,#c361ff,transparent),radial-gradient(circle_farthest-side_at_100%_100%,#14ffea,transparent),radial-gradient(circle_farthest-side_at_0_0,#fb1cde,#151316)]"
         )}
       />
       <motion.div
@@ -61,8 +61,8 @@ export const Gradiant = ({
           backgroundSize: animate ? "400% 400%" : undefined,
         }}
         className={cn(
-          "absolute inset-0 rounded-3xl z-[1] will-change-transform",
-          "bg-[radial-gradient(circle_farthest-side_at_0_100%,#6a00ab,transparent),radial-gradient(circle_farthest-side_at_100%_0,#ffffff,transparent),radial-gradient(circle_farthest-side_at_100%_100%,#e2b3ff,transparent),radial-gradient(circle_farthest-side_at_0_0,#e2b3ff,#6a00ab)]"
+          "absolute inset-0 rounded-3xl z-[1] will-change-transform ",
+          " bg-[radial-gradient(circle_farthest-side_at_0_100%,#edb0e1,transparent),radial-gradient(circle_farthest-side_at_100%_0,#c361ff,transparent),radial-gradient(circle_farthest-side_at_100%_100%,#14ffea,transparent),radial-gradient(circle_farthest-side_at_0_0,#fb1cde,#151316)]"
         )}
       />
 

@@ -1,9 +1,10 @@
-import About from "./components/Container/About"
-import HardSkills  from "./components/Container/HardSkills/index"
-import Home from "./components/Container/Home"
-import Navbar from "./components/Container/Navbar"
-import { Background } from "./components/lib/Background/Background"
-import SocialMedia from "./components/SocialMedia"
+import About from "./components/Container/About";
+import Contact from "./components/Container/Contact";
+import Footer from "./components/Container/Footer";
+import HardSkills from "./components/Container/HardSkills/index";
+import Home from "./components/Container/Home";
+import Navbar from "./components/Container/Navbar";
+import Projects from "./components/Container/Projects";
 
 
 function App() {
@@ -12,12 +13,14 @@ function App() {
       <div>
         <Navbar />
         <Home />
-        <SocialMedia />
         <About />
         <HardSkills />
+        <Projects />
+        <Contact />
+        <Footer />
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

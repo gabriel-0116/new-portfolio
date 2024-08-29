@@ -3,7 +3,7 @@ export default {
   content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     screens: {
-      "2xl": { max: "1510px" },
+      "2xl": { max: "1556px" },
       // => @media (max-width: 1535px) { ... }
 
       xl: { max: "1279px" },
@@ -15,8 +15,10 @@ export default {
       md: { max: "767px" },
       // => @media (max-width: 767px) { ... }
 
-      sm: { max: "555px" },
+      sm: { max: "557px" },
       // => @media (max-width: 639px) { ... }
+      
+      "2sm": {max: "320px" },
 
       smmin: "640px",
       // => @media (min-width: 640px) { ... }
@@ -62,5 +64,6 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+  ],
 };
