@@ -1,7 +1,7 @@
 import stock from "../../../assets/imgs/stock.svg";
 import react from "../../../assets/imgs/react.svg";
 import javascript from "../../../assets/imgs/javascript.svg";
-import sass from "../../../assets/imgs/sass.svg";
+import sass from "../../../assets/imgs/sass.png";
 import git from "../../../assets/imgs/git.svg";
 import routerDom from "../../../assets/imgs/router-dom.svg";
 
