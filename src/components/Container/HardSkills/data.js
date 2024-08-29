@@ -2,7 +2,7 @@ import react from "../../../assets/imgs/react.svg";
 import javascript from "../../../assets/imgs/javascript.svg";
 import typescript from "../../../assets/imgs/typescript.svg";
 import node from "../../../assets/imgs/node.svg";
-import sass from "../../../assets/imgs/SASS.svg";
+import sass from "../../../assets/imgs/sass.svg";
 import git from "../../../assets/imgs/git.svg";
 import css from "../../../assets/imgs/css.svg";
 import html from "../../../assets/imgs/html.svg";
