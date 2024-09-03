@@ -29,7 +29,7 @@ function Home() {
         <div className="flex items-center justify-center mt-10">
           <button className="mr-2 bg-gradient-to-br from-purple-700 to-pink-300 hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-100 hover:shadow-purple-300 hover:shadow-2xl text-white font-bold px-4 rounded-full w-46 h-14 flex items-center gap-2 ease-in-out duration-300 sm:w-40">
             <DownloadAnimation  />
-            <a href="" target="_blank">
+            <a href="../../../../public/Currículo Gabriel Santos .pdf" target="_blank">
               <span className="text-lg lg:text-base sm:text-sm">Download CV</span>
             </a>
           </button>
