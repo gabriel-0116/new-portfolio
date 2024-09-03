@@ -23,8 +23,8 @@ function Projects() {
           </p>
         </div>
         <motion.div 
-        className="flex justify-center items-center gap-10 "
-        variants={fadeIn("right", 0.2)}
+        className="flex justify-center items-center gap-10 lg:grid-cols-1 lg:grid"
+        variants={fadeIn("up", 0.2)}
         initial="hidden"
         whileInView={"show"}
         viewport={{ once: false, amount: 0.7 }}
